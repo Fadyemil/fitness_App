@@ -1,11 +1,11 @@
 import 'package:fitness_app/core/theme/colors.dart';
-import 'package:fitness_app/features/login/ui/screen/register_screen.dart';
+import 'package:fitness_app/features/login/ui/screen/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CreateAccount extends StatelessWidget {
-  const CreateAccount({
+class HaveAccount extends StatelessWidget {
+  const HaveAccount({
     super.key,
   });
 
@@ -15,7 +15,7 @@ class CreateAccount extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Don’t have an account yet?',
+            text: 'Already have an account?',
             style: TextStyle(
               fontSize: 14.sp,
               color: Colors.black,
@@ -24,7 +24,7 @@ class CreateAccount extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: ' Register',
+            text: ' Login',
             style: TextStyle(
               fontSize: 14.sp,
               color: ColorsManager.secondaryColor1,
@@ -35,7 +35,7 @@ class CreateAccount extends StatelessWidget {
               ..onTap = () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
           ),
