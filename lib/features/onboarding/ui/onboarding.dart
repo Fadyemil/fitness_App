@@ -110,15 +110,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Positioned(
               bottom: 20,
               right: 20,
-              child: Container(
-                width: 315.w,
-                height: 50.h,
-                decoration: BoxDecoration(
-                    color: const Color(0xff92A3FD),
-                    borderRadius: BorderRadius.circular(45.r)),
-                child: const Center(
-                  child: Text(
-                    'Go To Register',
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Container(
+                  width: 315.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff92A3FD),
+                      borderRadius: BorderRadius.circular(45.r)),
+                  child: const Center(
+                    child: Text(
+                      'Go To Register',
+                    ),
                   ),
                 ),
               ),

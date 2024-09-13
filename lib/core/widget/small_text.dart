@@ -13,6 +13,7 @@ class SmallText extends StatelessWidget {
     this.overflow = TextOverflow.ellipsis,
     this.fontWeight = FontWeight.w400,
     this.isOverflow = true,
+    this.isDecoration = false,
   });
   final String data;
   Color? color;
@@ -20,6 +21,7 @@ class SmallText extends StatelessWidget {
   TextOverflow overflow;
   FontWeight? fontWeight;
   bool isOverflow;
+  bool isDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class SmallText extends StatelessWidget {
         color: color,
         fontFamily: 'Roboto',
         fontWeight: fontWeight,
+        decoration: isDecoration ? TextDecoration.underline : null,
       ),
     );
   }

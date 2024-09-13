@@ -1,7 +1,9 @@
 // ignore_for_file: unused_field
 
+import 'package:fitness_app/core/di/dependency_injection.dart';
 import 'package:fitness_app/features/home/ui/screen/home_screen.dart';
 import 'package:fitness_app/features/login/logic/login/login_cubit.dart';
+import 'package:fitness_app/features/login/logic/register/register_cubit.dart';
 import 'package:fitness_app/features/login/ui/screen/login.dart';
 import 'package:fitness_app/features/onboarding/ui/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
   runApp(const MyApp());
 }
 
@@ -59,7 +63,10 @@ class _MyAppState extends State<MyApp> {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => LoginCubit(),
+            create: (context) => getIt<LoginCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
           ),
         ],
         child: MaterialApp(
