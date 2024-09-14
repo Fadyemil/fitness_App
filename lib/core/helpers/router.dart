@@ -1,6 +1,6 @@
 import 'package:fitness_app/features/home/ui/screen/home_screen.dart';
-import 'package:fitness_app/features/login/ui/screen/login.dart';
-import 'package:fitness_app/features/login/ui/screen/register_screen.dart';
+import 'package:fitness_app/features/auth/ui/screen/login.dart';
+import 'package:fitness_app/features/auth/ui/screen/register_screen.dart';
 import 'package:fitness_app/features/onboarding/ui/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

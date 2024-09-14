@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:fitness_app/core/widget/gradient_button.dart';
-import 'package:fitness_app/features/login/logic/register/register_cubit.dart';
-import 'package:fitness_app/features/login/ui/widget/login/divider_widget.dart';
-import 'package:fitness_app/features/login/ui/widget/login/login_face_google.dart';
-import 'package:fitness_app/features/login/ui/widget/register/app_bar_register.dart';
-import 'package:fitness_app/features/login/ui/widget/register/check_box.dart';
-import 'package:fitness_app/features/login/ui/widget/register/form_register.dart';
-import 'package:fitness_app/features/login/ui/widget/register/have_account.dart';
+import 'package:fitness_app/features/auth/logic/register/register_cubit.dart';
+import 'package:fitness_app/features/auth/ui/widget/login/divider_widget.dart';
+import 'package:fitness_app/features/auth/ui/widget/login/login_face_google.dart';
+import 'package:fitness_app/features/auth/ui/widget/register/app_bar_register.dart';
+import 'package:fitness_app/features/auth/ui/widget/register/check_box.dart';
+import 'package:fitness_app/features/auth/ui/widget/register/form_register.dart';
+import 'package:fitness_app/features/auth/ui/widget/register/have_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

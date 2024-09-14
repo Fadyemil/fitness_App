@@ -1,7 +1,7 @@
 import 'package:fitness_app/core/helpers/app_regex.dart';
 import 'package:fitness_app/core/widget/app_text_from_field.dart';
-import 'package:fitness_app/features/login/logic/register/register_cubit.dart';
-import 'package:fitness_app/features/login/ui/widget/register/pass_validation.dart';
+import 'package:fitness_app/features/auth/logic/register/register_cubit.dart';
+import 'package:fitness_app/features/auth/ui/widget/register/pass_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

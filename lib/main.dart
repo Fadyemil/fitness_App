@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'core/di/dependency_injection.dart';
 import 'core/helpers/router.dart';
-import 'features/login/logic/login/login_cubit.dart';
-import 'features/login/logic/register/register_cubit.dart';
+import 'features/auth/logic/login/login_cubit.dart';
+import 'features/auth/logic/register/register_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
