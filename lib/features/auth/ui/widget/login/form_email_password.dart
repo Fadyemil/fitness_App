@@ -78,8 +78,12 @@ class _FormEmailPasswordState extends State<FormEmailPassword> {
             controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             validator: (value) {
-              if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+              if (value == null ||
+                      value
+                          .isEmpty /*||
+                  !AppRegex.isPasswordValid(value)*/
+                  ) {
+                return 'Please enter a valid password';
               }
             },
             backgroundColor: Color(0xffF7F8F8),
