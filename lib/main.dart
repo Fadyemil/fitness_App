@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/cache/cach_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +10,7 @@ import 'features/auth/logic/register/register_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+   CacheHelper().init();
   setupGetIt();
   final GoRouter router =
       await initializeRouter(); // Ensure the router is fully initialized

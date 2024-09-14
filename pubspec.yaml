@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.6
+  dio: ^5.7.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
@@ -19,6 +20,7 @@ dependencies:
   go_router: ^14.2.3
   iconsax: ^0.0.8
   material_symbols_icons: ^4.2785.1
+  pretty_dio_logger: ^1.4.0
   shared_preferences: ^2.3.2
   smooth_page_indicator: ^1.2.0+3
 
