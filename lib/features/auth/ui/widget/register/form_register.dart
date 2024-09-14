@@ -110,7 +110,9 @@ class _FormRegisterState extends State<FormRegister> {
             controller: context.read<RegisterCubit>().passwordController,
             hintText: 'Password',
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPasswordValid(value)) {
                 return 'Please enter a valid password';
               }
             },
