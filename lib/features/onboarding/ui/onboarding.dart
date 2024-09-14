@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:fitness_app/core/widget/big_text.dart';
 import 'package:fitness_app/core/widget/small_text.dart';
-import 'package:fitness_app/features/login/ui/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -28,10 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _completeOnboarding() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isFirstTime', false);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
+    GoRouter.of(context).go('/login');
   }
 
   void _nextPage() {
@@ -112,10 +109,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               right: 20,
               child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
+                  _completeOnboarding();
+                  GoRouter.of(context).go('/login');
                 },
                 child: Container(
                   width: 315.w,
@@ -160,7 +155,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return SingleChildScrollView(
       child: Container(
         height: 812.h,
-        // padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),

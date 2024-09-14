@@ -1,8 +1,8 @@
 import 'package:fitness_app/core/theme/colors.dart';
-import 'package:fitness_app/features/login/ui/screen/register_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({
@@ -33,10 +33,7 @@ class CreateAccount extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                );
+                GoRouter.of(context).go('/register');
               },
           ),
         ],

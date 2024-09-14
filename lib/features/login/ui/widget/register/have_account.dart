@@ -1,8 +1,8 @@
 import 'package:fitness_app/core/theme/colors.dart';
-import 'package:fitness_app/features/login/ui/screen/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HaveAccount extends StatelessWidget {
   const HaveAccount({
@@ -33,10 +33,7 @@ class HaveAccount extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
+                GoRouter.of(context).go('/login');
               },
           ),
         ],
