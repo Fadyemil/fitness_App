@@ -87,20 +87,58 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Positioned(
               bottom: 20,
               left: 20,
-              child: FloatingActionButton(
-                onPressed: _previousPage,
-                backgroundColor: Color(0xff99BEFE),
-                child: const Icon(Icons.arrow_back),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                    height: 70.h,
+                    width: 70.w,
+                    child: CircularProgressIndicator(
+                      color: Colors.red,
+                      value: 1 - (_currentIndex + 1) / 4,
+                      strokeWidth: 2,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 70.w,
+                    height: 70.h,
+                    child: FloatingActionButton(
+                      shape: CircleBorder(),
+                      onPressed: _previousPage, // وظيفة الزر
+                      backgroundColor: const Color(0xff99BEFE), // اللون الخلفي
+                      child: const Icon(Icons.arrow_back), // أيقونة السهم
+                    ),
+                  ),
+                ],
               ),
             ),
           if (_currentIndex <= 2)
             Positioned(
               bottom: 20,
               right: 20,
-              child: FloatingActionButton(
-                onPressed: _nextPage,
-                backgroundColor: Color(0xff99BEFE),
-                child: const Icon(Icons.arrow_forward),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                    height: 70.h,
+                    width: 70.w,
+                    child: CircularProgressIndicator(
+                      color: Colors.red,
+                      value: (_currentIndex + 1) / 4, // مؤشر نسبة التقدم
+                      strokeWidth: 2,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 70.w,
+                    height: 70.h,
+                    child: FloatingActionButton(
+                      shape: CircleBorder(),
+                      onPressed: _nextPage,
+                      backgroundColor: Color(0xff99BEFE),
+                      child: const Icon(Icons.arrow_forward),
+                    ),
+                  ),
+                ],
               ),
             ),
           if (_currentIndex == 3)
