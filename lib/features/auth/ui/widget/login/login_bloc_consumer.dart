@@ -20,27 +20,27 @@ class LoginBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) async {
         if (state is SignInSuccess) {
+          log('************************done login***************************************');
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text('Done Login '),
               duration: Duration(seconds: 3),
             ),
           );
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          await prefs.setBool('isLoggedIn', true); // Save login status
-
+          await prefs.setBool('isLoggedIn', true);
           GoRouter.of(context).go('/home');
-
-          log('************************done login***************************************');
         } else if (state is SignInFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content:
                   Text('Sign-up failed. Please try again ${state.errMessage}'),
-              duration: Duration(seconds: 6),
+              duration: const Duration(seconds: 6),
             ),
           );
           log('Sign-up failed. Please try again.*********** ${state.errMessage}********');
+        } else if (state is SignInLoading) {
+          log('***********SignIn Loading************* login***************************************');
         }
       },
       builder: (context, state) {
@@ -67,20 +67,3 @@ class LoginBlocConsumer extends StatelessWidget {
     );
   }
 }
-
-
-/**
- * ElevatedButton(
-          onPressed: () async {
-            // Simulate login success
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-            await prefs.setBool('isLoggedIn', true); // Save login status
-
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
-            );
-          },
-          child: Text('Login'),
-        ),
- */
