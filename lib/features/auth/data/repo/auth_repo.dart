@@ -9,7 +9,7 @@ import 'package:fitness_app/features/auth/data/models/sign_up_model.dart';
 import 'package:fitness_app/features/auth/domain/entites/body_response_login.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
-class UserRepo {
+class AuthRepo {
   final ApiService apiService = ApiService();
 
   Future<Either<String, SignInModel>> signInRepo(

@@ -1,7 +1,7 @@
 // ignore_for_file: void_checks
 
 import 'package:bloc/bloc.dart';
-import 'package:fitness_app/features/auth/data/repo/user_repo.dart';
+import 'package:fitness_app/features/auth/data/repo/auth_repo.dart';
 import 'package:flutter/material.dart';
 
 part 'register_state.dart';
@@ -15,7 +15,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  final UserRepo userRepo = UserRepo();
+  final AuthRepo userRepo = AuthRepo();
 
   Future<void> signUp() async {
     emit(SignUpLoading());
