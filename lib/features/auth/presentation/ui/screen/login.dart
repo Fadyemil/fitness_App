@@ -1,10 +1,10 @@
 import 'package:fitness_app/core/widget/small_text.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/app_bar_login.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/create_account.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/divider_widget.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/form_email_password.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/login_bloc_consumer.dart';
-import 'package:fitness_app/features/auth/ui/widget/login/login_face_google.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/app_bar_login.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/create_account.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/divider_widget.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/form_email_password.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/login_bloc_consumer.dart';
+import 'package:fitness_app/features/auth/presentation/ui/widget/login/login_face_google.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
