@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/features/auth/data/repo/user_repo.dart';
+import 'package:fitness_app/features/auth/domain/entites/body_response_login.dart';
 import 'package:flutter/material.dart';
 
 part 'login_state.dart';
@@ -15,9 +16,10 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> signIn() async {
     emit(SignInLoading());
     final response = await userRepo.signInRepo(
+        bodyResponseLogin: BodyResponseLogin(
       email: emailController.text,
       password: passwordController.text,
-    );
+    ));
     response.fold(
       (errMessage) {
         return emit(SignInFailure(errMessage: errMessage));

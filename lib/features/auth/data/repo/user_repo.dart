@@ -6,23 +6,22 @@ import 'package:fitness_app/features/auth/data/api/api_service.dart';
 import 'package:fitness_app/features/auth/data/api/end_point.dart';
 import 'package:fitness_app/features/auth/data/models/sign_in_model.dart';
 import 'package:fitness_app/features/auth/data/models/sign_up_model.dart';
+import 'package:fitness_app/features/auth/domain/entites/body_response_login.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 class UserRepo {
   final ApiService apiService = ApiService();
 
-  Future<Either<String, SignInModel>> signInRepo({
-    required String email,
-    required String password,
-  }) async {
+  Future<Either<String, SignInModel>> signInRepo(
+      {required BodyResponseLogin bodyResponseLogin}) async {
     try {
       final Response response = await apiService.post(
         url: EndPoint.signIn,
         body: {
-          ApiKey.email: email,
-          ApiKey.password: password,
+          ApiKey.email: bodyResponseLogin.email,
+          ApiKey.password: bodyResponseLogin.password,
         },
-      );    
+      );
       final user = SignInModel.fromJson(response.data);
       final decodedToken = JwtDecoder.decode(user.token);
       CacheHelper().saveData(key: ApiKey.token, value: user.token);
