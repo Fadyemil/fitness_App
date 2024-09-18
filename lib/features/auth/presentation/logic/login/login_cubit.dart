@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fitness_app/features/auth/data/repo/auth_repo.dart';
+import 'package:fitness_app/features/auth/domain/repo/auth_repo.dart';
 import 'package:fitness_app/features/auth/domain/entites/body_response_login.dart';
 import 'package:flutter/material.dart';
 
