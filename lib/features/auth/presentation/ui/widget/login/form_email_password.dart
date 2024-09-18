@@ -1,20 +1,22 @@
 import 'package:fitness_app/core/helpers/app_regex.dart';
 import 'package:fitness_app/core/widget/app_text_from_field.dart';
-import 'package:fitness_app/features/auth/logic/register/register_cubit.dart';
-import 'package:fitness_app/features/auth/ui/widget/register/pass_validation.dart';
+import 'package:fitness_app/features/auth/presentation/logic/login/login_cubit.dart';
+import 'package:fitness_app/features/auth/ui/widget/login/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FormRegister extends StatefulWidget {
-  const FormRegister({super.key});
+class FormEmailPassword extends StatefulWidget {
+  const FormEmailPassword({
+    super.key,
+  });
 
   @override
-  State<FormRegister> createState() => _FormRegisterState();
+  State<FormEmailPassword> createState() => _FormEmailPasswordState();
 }
 
-class _FormRegisterState extends State<FormRegister> {
+class _FormEmailPasswordState extends State<FormEmailPassword> {
   bool isObscureText = true;
   bool hasLowercase = false;
   bool hasUppercase = false;
@@ -25,7 +27,7 @@ class _FormRegisterState extends State<FormRegister> {
   @override
   void initState() {
     super.initState();
-    passwordController = context.read<RegisterCubit>().passwordController;
+    passwordController = context.read<LoginCubit>().passwordController;
     // Set up the listener for the password text field
     setupPasswordControllerListener();
   }
@@ -52,44 +54,11 @@ class _FormRegisterState extends State<FormRegister> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<RegisterCubit>().registerFormKey,
+      key: context.read<LoginCubit>().loginFormKey,
       child: Column(
         children: [
-          //~ Field Fist Name
           AppTextFormField(
-            controller: context.read<RegisterCubit>().firetNameController,
-            hintText: 'First Name',
-            validator: (value) {
-              if (value == null || value.isEmpty || value.length < 2) {
-                return 'Please enter a valid name';
-              }
-            },
-            backgroundColor: Color(0xffF7F8F8),
-            prefixIcon: Icon(
-              Iconsax.profile_circle,
-              size: 25.sp,
-            ),
-          ),
-          SizedBox(height: 16.h),
-          //~ Field Last Name
-          AppTextFormField(
-            controller: context.read<RegisterCubit>().lastNAmeController,
-            hintText: 'Last Name',
-            validator: (value) {
-              if (value == null || value.isEmpty || value.length < 2) {
-                return 'Please enter a valid name';
-              }
-            },
-            backgroundColor: Color(0xffF7F8F8),
-            prefixIcon: Icon(
-              Iconsax.profile_circle,
-              size: 25.sp,
-            ),
-          ),
-          SizedBox(height: 16.h),
-          //~ Field Email
-          AppTextFormField(
-            controller: context.read<RegisterCubit>().emailController,
+            controller: context.read<LoginCubit>().emailController,
             hintText: 'Email',
             validator: (value) {
               if (value == null ||
@@ -105,14 +74,15 @@ class _FormRegisterState extends State<FormRegister> {
             ),
           ),
           SizedBox(height: 16.h),
-          //~ Field Password
           AppTextFormField(
-            controller: context.read<RegisterCubit>().passwordController,
+            controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             validator: (value) {
               if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPasswordValid(value)) {
+                      value
+                          .isEmpty /*||
+                  !AppRegex.isPasswordValid(value)*/
+                  ) {
                 return 'Please enter a valid password';
               }
             },
@@ -134,26 +104,21 @@ class _FormRegisterState extends State<FormRegister> {
             ),
           ),
           SizedBox(height: 8.h),
-          //~ Validations Password
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: PassValidations(
-              hasLowerCase: hasLowercase,
-              hasUpperCase: hasUppercase,
-              hasSpecialCharacters: hasSpecialCharacters,
-              hasNumber: hasNumber,
-              hasMinLength: hasMinLength,
-            ),
+          PasswordValidations(
+            hasLowerCase: hasLowercase,
+            hasUpperCase: hasUppercase,
+            hasSpecialCharacters: hasSpecialCharacters,
+            hasNumber: hasNumber,
+            hasMinLength: hasMinLength,
           ),
         ],
       ),
     );
   }
 
-  // @override
+  //  @override
   // void dispose() {
-  //   // Remove the listener when the widget is disposed
-  //   super.dispose();
   //   passwordController.dispose();
+  //   super.dispose();
   // }
 }
